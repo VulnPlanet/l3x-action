@@ -1,0 +1,30 @@
+name: 'L3X AI-driven Static Analyzer'
+description: 'Scan your project for vulnerabilities using L3X'
+inputs:
+  github_token:
+    description: 'GitHub token for PR comments and security uploads'
+    required: true
+  openai_api_key:
+    description: 'OpenAI API key for ChatGPT validation'
+    required: false
+  openai_org_id:
+    description: 'OpenAI Organization ID'
+    required: false
+  openai_project_id:
+    description: 'OpenAI Project ID'
+    required: false
+  validate_all_severities:
+    description: 'Validate findings of all severities, not just critical and high'
+    required: false
+    default: 'false'
+  model:
+    description: 'OpenAI model to use (gpt-3.5-turbo or gpt-4)'
+    required: false
+    default: 'gpt-3.5-turbo'
+  no_validation:
+    description: 'Skip vulnerability validation'
+    required: false
+    default: 'false'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
